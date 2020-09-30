@@ -21,10 +21,8 @@ export class PostComponent implements OnInit {
       this.postIdParam = params['id'];
     });
 
-    this.postService.getPost(this.postIdParam).subscribe(data => {
-      this.post.title = data.title;
-      this.post.content = data.content;
-      this.post.username = data.username;
+    this.postService.getPost(this.postIdParam).subscribe((data: PostPayload) => {
+      this.post = data;
     });
 
   }
